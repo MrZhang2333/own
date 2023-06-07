@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src/vue.js"></script>
+    <script src="index/index.js"></script>
+    <link href="index/index.css" rel="stylesheet" />
+    <title>闰土的瓜地</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-bar">
+            <div class="header-left">
+                <ul id="header-left-pages">
+                    <tr><a href="index.html" >主页</a></tr>
+                    <tr><a href="pages/killRunTu/kill.html" >联系我们</a></tr>
+                    <tr><a href="pages/shop/shop.html" >商店</a></tr>
+                    <tr><a href="pages/about/about.html" >关于</a></tr>
+                </ul>
+            </div>
+            <div class="header-center">
+                <p class="header-center-text">闰土的瓜地</p>
+            </div>
+            <div class ="header-right">
+                <a target="_blank" href="https://space.bilibili.com/277053508?spm_id_from=333.1007.0.0" ,@mouseenter="header-bilibili-mouseenter">
+                    <b>闰土请您喝猹</b></a>
+            </div>
+        </div>
+    </div>
+    
+    <div >
+        <div id="applocation">
+            
+            <div v-bind:style="{backgroundColor:Color,height:height}">
+                <button @click="showInfo1">不要点我！</button>
+                <button @click="showInfo2">快来点我！</button>
+                <h1 style="text-align: center ;color:rgba(255, 54, 54, 0.49);"><b>{{msg}}</b></h1>
+                <input type="text" v-model="Color">
+                <button @click="BackgroundColorChange1">绿色背景</button>
+                <button @click="BackgroundColorChange2">红色背景</button>
+                <button @click="HeightUp">降低高度</button>
+                <button @click="HeightDown">增加高度</button>
+            </div>
+            <div v-for="(item,key) in list" data-id="key">
+                索引为：{{key}},元素内容是：{{item}}
+            </div>
+        </div>
+    </div>
+    <div id="tabbar"></div>
+
+    
+    <script>
+        var vm = new Vue({
+            el : '#applocation',
+            data: {
+                msg: 'Hello World!!!',
+                msg1:'Hello World!!!',
+                msg2:'GoodBye World!!!',
+                Color: '#FFFFFF',
+                h:100,
+                height: this.h+'px',
+                list:[0,233,0885,'asdf',5033,'tjttu','0307']
+            },
+            methods:{
+            showInfo1: function()
+            {
+                if (flag)
+                {
+                this.msg=this.msg2;
+                flag = false
+                }
+                else
+                {
+                
+                this.msg=this.msg1;
+                flag = true
+              
+                }
+            },
+            showInfo2: function()
+            {
+                if (flag)
+                {
+                    this.msg1+='!!!'
+                    this.msg+='!!!'
+                }
+                else
+                {
+                
+                    this.msg2+='!!!'
+                    this.msg+='!!!'
+                }
+            },
+            BackgroundColorChange1: function()
+            {
+                this.Color='#FF0000'
+            },
+            BackgroundColorChange2: function()
+            {
+                this.Color='#00FF00'
+            },
+            HeightUp: function()
+            {
+                this.h+=10;
+                this.height= this.h+'px';
+            },
+            HeightDown: function()
+            {
+                this.h-=10;
+                this.height= this.h+'px';
+            },
+        },
+    })
+    </script>
+</body>
+</html>
