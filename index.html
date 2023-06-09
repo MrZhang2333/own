@@ -5,33 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="src/vue.js"></script>
-    <script src="index/index.js"></script>
+    <script src="src/vue-router.js"></script>
+    <!--<link href="pages/about/about.vue" />-->    
     <link href="index/index.css" rel="stylesheet" />
     <title>闰土的瓜地</title>
 </head>
+
 <body>
-    <div class="header">
-        <div class="header-bar">
-            <div class="header-left">
-                <ul id="header-left-pages">
-                    <tr><a href="index.html" >主页</a></tr>
-                    <tr><a href="pages/killRunTu/kill.html" >联系我们</a></tr>
-                    <tr><a href="pages/shop/shop.html" >商店</a></tr>
-                    <tr><a href="pages/about/about.html" >关于</a></tr>
-                </ul>
-            </div>
-            <div class="header-center">
-                <p class="header-center-text">闰土的瓜地</p>
-            </div>
-            <div class ="header-right">
-                <a target="_blank" href="https://space.bilibili.com/277053508?spm_id_from=333.1007.0.0" ,@mouseenter="header-bilibili-mouseenter">
-                    <b>闰土请您喝猹</b></a>
-            </div>
-        </div>
-    </div>
     
-    <div >
-        <div id="applocation">
+    <template id="about">
+        <div>
+            <h1>闰土</h1>
+            <p>
+                这里是闰土和他的猹
+            </p>
+        </div>
+    </template>
+    <template id="kill">
+        <h1>页面尚未完工，过几天再来吧！</h1>
+    </template>
+    <template id="shop">
+        <div>
+            <h1 style="color: red;">闰土的瓜摊</h1>
+            <h4>两块钱一斤</h2>
+            <h4>我一开水果摊的，能卖你生瓜吗</h2>
+            <h2 style="color: red;">华强禁止靠近</h3>
+            <h2 style="color: red;">严禁找猹！</h1>
+            <h1>欢迎投喂：</h1>
+            <div class="ShouKuanMa-div">
+                <div class="Alipay">
+                <img width="200px" src="src/img/AliPay.jpg" alt="支付宝收款" />
+                <img width="200px" src="src/img/WX-Pay.jpg" alt="微信收款" />
+                </div>
+
+            </div>
+
+        </div>
+    </template>
+    <div id="app">
+        <div class="header">
+            <div class="header-bar">
+                <div class="header-left">
+                    <ul class="header-left-pages">
+                        <tr><a href="index.html" >主页</a></tr>
+                        <tr><router-link to="/kill" tag="a">联系我们</router-link></tr>
+                        <tr><router-link to="/shop" tag="a">商店</router-link></tr>
+                        <tr><router-link to="/about" tag="a">关于</router-link></tr>
+                    </ul>
+                </div>
+                <div class="header-center">
+                    <p class="header-center-text">闰土的瓜地</p>
+                </div>
+                <div class ="header-right">
+                    <a target="_blank" href="https://space.bilibili.com/277053508?spm_id_from=333.1007.0.0">
+                    <b>闰土请您喝猹</b></a>
+                </div>
+            </div>
+           
+        </div>
+        
+        <router-view></router-view> 
+        
+        <!---->
+        
+
+    
+
+
+
+
+        <div>
             
             <div v-bind:style="{backgroundColor:Color,height:height}">
                 <button @click="showInfo1">不要点我！</button>
@@ -47,14 +90,37 @@
                 索引为：{{key}},元素内容是：{{item}}
             </div>
         </div>
+        <div id="tabbar">
+        </div>
     </div>
-    <div id="tabbar"></div>
-
-    
     <script>
+        var about = {
+            template: '#about'
+        }
+        var shop = {
+            template: '#shop'
+        }
+        var kill = {
+            template: '#kill'
+        }
+        var router = new VueRouter({
+            routes : [
+                {path:'/about',component: about },
+                {path:'/shop',component: shop },
+                {path:'/kill',component: kill },
+
+            ]
+        })
+
+
+
+
+        var flag = true
         var vm = new Vue({
-            el : '#applocation',
-            data: {
+            router: router,
+            el : '#app',
+            data: 
+            {
                 msg: 'Hello World!!!',
                 msg1:'Hello World!!!',
                 msg2:'GoodBye World!!!',
@@ -63,7 +129,8 @@
                 height: this.h+'px',
                 list:[0,233,0885,'asdf',5033,'tjttu','0307']
             },
-            methods:{
+            methods:
+            {
             showInfo1: function()
             {
                 if (flag)
@@ -111,8 +178,8 @@
                 this.h-=10;
                 this.height= this.h+'px';
             },
-        },
-    })
+            },
+        })
     </script>
 </body>
 </html>

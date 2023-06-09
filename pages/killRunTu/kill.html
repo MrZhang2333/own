@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../src/vue.js"></script>
     <title>想要鲨了闰土</title>
 </head>
 <body>
     <h1 style="text-align: center; color:red;">页面尚未完工，请过几天再来访问叭</h1>
+    <h1>-------------------------</h1>
+    <h2>以下为  Vue 组件  实践</h2>
+    <div class="Test1">
+        <div id="app">
+            <my-component></my-component>
+            <my-component></my-component>
+            <my-component></my-component>
+        </div>
+    </div>
+
+
+    <script>
+        Vue.component('my-component',{
+            data () {
+                return {
+                    count : 0,                    
+                }
+            },
+            
+            template:'<button v-on:click="count++">我被点了{{count}}次s<button>',
+        })
+        var vm = new Vue ({
+            el:'#app',
+            
+        })
+    </script>
     
 </body>
 </html>

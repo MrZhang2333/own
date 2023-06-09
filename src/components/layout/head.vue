@@ -1,10 +1,32 @@
-body
+<template>
+    <div class="header">
+        <div class="header-bar">
+            <div class="header-left">
+                <ul id="header-left-pages">
+                    <tr><a href="index.html" >主页</a></tr>
+                    <tr><a href="pages/killRunTu/kill.html" >联系我们</a></tr>
+                    <tr><a href="pages/shop/shop.html" >商店</a></tr>
+                    <tr><a href="pages/about/about.html" >关于</a></tr>
+                </ul>
+            </div>
+            <div class="header-center">
+                <p class="header-center-text">闰土的瓜地</p>
+            </div>
+            <div class ="header-right">
+                <a target="_blank" href="https://space.bilibili.com/277053508?spm_id_from=333.1007.0.0" ,@mouseenter="header-bilibili-mouseenter">
+                    <b>闰土请您喝猹</b></a>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<style>
+    body
 {
     display: block  ;
     
-    min-width: 350px;
-    max-width: 100%;
-    margin: 0px;
+    min-width: 750px;
 }
 p
 {
@@ -17,8 +39,8 @@ p
     display: flex;
     align-items: center;
     justify-content: left;
-    width: 100%;
-    border: 0px 00px 0px 00px;
+    min-width: 750px;
+    border: 0px 20px 0px 20px;
     height: 50px;
     background-color: #900b65;
     
@@ -30,7 +52,7 @@ p
 {
     justify-content:space-between;
     width: 100%;
-    padding:0px 5px;
+    padding:0px 15px;
     display: flex;
     align-items: center;
 }
@@ -61,7 +83,7 @@ p
     display: flex;
     
 }
-.header-left-pages
+#header-left-pages
 {
     width: 100%;
     padding-left: 0px;
@@ -73,7 +95,7 @@ p
     
 }
 
-.header-left-pages > tr
+#header-left-pages > tr
 {
     min-width: 40px;
     display: inline-block;
@@ -83,7 +105,7 @@ p
     border: 0px 0px 0px 2px ;
 }
 
-.header-left-pages > a 
+#header-left-pages > a 
 {
     color:aliceblue;
     font-size: 14px;
@@ -106,10 +128,10 @@ p
     width: 100%;
 }
 
-.ShouKuanMa-div
+#page
 {
-    display: flex;
     align-items: center;
-    justify-items: left;
-    margin: 8px;
 }
+
+
+</style>

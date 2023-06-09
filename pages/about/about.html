@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/index/header.html" rel="html">
-    <script src="/src/vue.js"></script>
+    <script src="../../src/vue.js"></script>
+    
+    
+    <!------------------------------>
+
     <title>关于闰土和猹</title>
 </head>
 <body>
-    <iframe name="header" width="100%" height="50px" src="/index/header.html"  ></iframe>
+    <div class="header">
+        
+
+    </iframe>
+    </div>
+    <div id="app">
+        <herder-login></herder-login>
+    </div>
     <h1 style="text-align: center; color:red;">页面尚未完工，请过几天再来访问叭</h1>
 
 
 
 
-    
+    <script>
+        Vue.Head('Head',{
+            data () {
+                return {
+                    
+                }
+            },
+
+        })
+        var vm = new Head ({ el: '#app'})
+    </script>
 </body>
 </html>
